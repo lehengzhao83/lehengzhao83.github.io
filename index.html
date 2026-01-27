@@ -7,46 +7,41 @@
   <meta name="description" content="Leheng Zhao — personal homepage." />
 
   <style>
-    /* =====================
-       Mood: soft, blue-gray, slightly melancholic
-       ===================== */
     :root{
-      --bg: #f4f6f9;
+      --bg:#f4f6f9;
       --bg2:#eef2f7;
-      --paper: rgba(255,255,255,.70);
+      --paper: rgba(255,255,255,.72);
       --panel: rgba(255,255,255,.56);
 
-      --ink: #0f141b;
-      --muted leading: #5a6575;
-      --muted: #556173;
-      --faint: #7b8798;
+      --ink:#0f141b;
+      --muted:#556173;
+      --faint:#7b8798;
 
       --line: rgba(15,20,27,.10);
       --line2: rgba(15,20,27,.06);
 
-      --accent: #5f7a99;  /* blue-gray */
+      --accent:#5f7a99;
       --accent2:#9bb0c6;
 
-      --shadow: 0 20px 70px rgba(12, 18, 28, .12);
+      --shadow: 0 22px 80px rgba(12, 18, 28, .12);
       --shadow2: 0 10px 30px rgba(12, 18, 28, .10);
 
       --r: 18px;
       --r2: 14px;
-      --max: 1080px;
+      --max: 980px;
 
       --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
       --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
       --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     }
 
-    /* Night mode (more melancholic) */
     [data-theme="night"]{
-      --bg: #0c0f14;
+      --bg:#0c0f14;
       --bg2:#0b111a;
       --paper: rgba(255,255,255,.06);
       --panel: rgba(255,255,255,.05);
 
-      --ink: #e9eef7;
+      --ink:#e9eef7;
       --muted:#a8b4c8;
       --faint:#7f8aa0;
 
@@ -56,7 +51,7 @@
       --accent:#9fb6d4;
       --accent2:#7289a8;
 
-      --shadow: 0 22px 80px rgba(0,0,0,.45);
+      --shadow: 0 26px 90px rgba(0,0,0,.45);
       --shadow2: 0 12px 34px rgba(0,0,0,.35);
     }
 
@@ -66,16 +61,16 @@
       margin:0;
       font-family: var(--sans);
       line-height:1.65;
-      color: var(--ink);
+      color:var(--ink);
       background:
-        radial-gradient(1200px 700px at 12% 8%, rgba(95,122,153,.22), transparent 60%),
-        radial-gradient(1000px 650px at 88% 0%, rgba(155,176,198,.20), transparent 55%),
+        radial-gradient(1200px 700px at 12% 8%, rgba(95,122,153,.20), transparent 60%),
+        radial-gradient(1000px 650px at 88% 0%, rgba(155,176,198,.18), transparent 55%),
         radial-gradient(800px 520px at 70% 85%, rgba(95,122,153,.10), transparent 60%),
         linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
     }
 
-    /* gentle grain */
+    /* subtle grain */
     body:before{
       content:"";
       position:fixed;
@@ -83,49 +78,45 @@
       pointer-events:none;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='190' height='190' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
       mix-blend-mode:multiply;
-      opacity:.18;
+      opacity:.16;
     }
     [data-theme="night"] body:before{ opacity:.10; mix-blend-mode:screen; }
 
     a{
-      color: var(--accent);
+      color:var(--accent);
       text-decoration:none;
       border-bottom: 1px solid rgba(95,122,153,.25);
-      padding-bottom: 1px;
+      padding-bottom:1px;
     }
-    a:hover{
-      border-bottom-color: rgba(95,122,153,.55);
-    }
+    a:hover{ border-bottom-color: rgba(95,122,153,.55); }
 
     .wrap{
       max-width: var(--max);
       margin: 0 auto;
-      padding: 52px 20px 90px;
-      position:relative;
+      padding: 52px 18px 88px;
     }
 
-    /* top header */
-    .top{
+    /* top bar */
+    .topbar{
       display:flex;
-      align-items:flex-end;
+      align-items:flex-start;
       justify-content:space-between;
-      gap: 18px;
+      gap:16px;
       padding-bottom: 18px;
       border-bottom: 1px solid var(--line);
     }
+
     .id{
-      display:flex;
-      flex-direction:column;
-      gap: 8px;
-      min-width: 240px;
+      min-width: 260px;
     }
-    .name{
+    h1{
       margin:0;
       font-size: 46px;
       font-weight: 780;
-      letter-spacing: .2px;
+      letter-spacing:.2px;
     }
     .sub{
+      margin-top: 8px;
       color: var(--muted);
       font-size: 16px;
     }
@@ -149,20 +140,38 @@
       letter-spacing:.3px;
     }
 
-    .toolbar{
+    .navrow{
       display:flex;
-      gap: 10px;
-      justify-content:flex-end;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
       margin-top: 14px;
     }
+    .nav{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .nav a{
+      border-bottom: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line2);
+      background: rgba(255,255,255,.34);
+    }
+    [data-theme="night"] .nav a{ background: rgba(255,255,255,.03); }
+    .nav a:hover{ transform: translateY(-1px); }
+
     .btn{
       display:inline-flex;
       align-items:center;
-      gap: 10px;
+      gap:10px;
       padding: 10px 12px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.35);
+      background: rgba(255,255,255,.34);
       box-shadow: var(--shadow2);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -170,77 +179,19 @@
       cursor:pointer;
       user-select:none;
       font-size: 14px;
+      white-space:nowrap;
     }
-    [data-theme="night"] .btn{ background: rgba(255,255,255,.04); }
+    [data-theme="night"] .btn{ background: rgba(255,255,255,.03); }
     .btn:hover{ transform: translateY(-1px); }
-    .btn .dot{
+    .dot{
       width:8px;height:8px;border-radius:999px;
       background: rgba(95,122,153,.8);
       box-shadow: 0 0 0 4px rgba(95,122,153,.12);
     }
 
-    /* layout */
-    .layout{
-      margin-top: 22px;
-      display:grid;
-      grid-template-columns: 240px 1fr;
-      gap: 18px;
-      align-items:start;
-    }
-
-    /* left column nav */
-    .side{
-      position: sticky;
-      top: 16px;
-      border-radius: var(--r);
-      background: var(--panel);
-      border: 1px solid var(--line2);
-      box-shadow: var(--shadow2);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 14px;
-    }
-    .miniTitle{
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing:.7px;
-      color: var(--faint);
-      margin: 4px 0 10px;
-    }
-    .nav a{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      border: none;
-      color: var(--ink);
-      padding: 8px 10px;
-      border-radius: 12px;
-      font-size: 14px;
-      opacity:.92;
-    }
-    .nav a:hover{
-      background: rgba(95,122,153,.10);
-      opacity:1;
-    }
-    .nav .k{
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--faint);
-      opacity:.85;
-    }
-    .sep{
-      height:1px;
-      background: var(--line2);
-      margin: 12px 0;
-    }
-    .badge{
-      font-size: 12px;
-      color: var(--faint);
-      line-height:1.55;
-    }
-
     /* main card */
     .card{
+      margin-top: 18px;
       border-radius: var(--r);
       background: var(--paper);
       border: 1px solid rgba(255,255,255,.28);
@@ -249,12 +200,14 @@
       -webkit-backdrop-filter: blur(14px);
       overflow:hidden;
     }
+
     .hero{
       display:grid;
       grid-template-columns: 260px 1fr;
       gap: 18px;
-      padding: 18px 18px 14px;
+      padding: 18px;
     }
+
     .photo{
       border-radius: var(--r2);
       overflow:hidden;
@@ -278,53 +231,47 @@
     }
 
     .about h2{
-      margin: 0;
+      margin:0;
       font-size: 13px;
       text-transform: uppercase;
-      letter-spacing:.8px;
+      letter-spacing:.85px;
       color: var(--faint);
     }
     .about p{
       margin: 10px 0 0;
       font-size: 16px;
-      color: var(--ink);
     }
 
     .meta{
       margin-top: 12px;
       font-size: 14px;
       color: var(--muted);
+      display:grid;
+      gap: 6px;
     }
     .meta .k{ color: var(--faint); }
-    .meta .row{ margin: 4px 0; }
-
-    .chips{
+    .quick{
+      margin-top: 12px;
       display:flex;
       gap: 10px;
       flex-wrap:wrap;
-      padding: 12px 18px;
-      border-top: 1px solid var(--line2);
-      background: rgba(255,255,255,.40);
     }
-    [data-theme="night"] .chips{ background: rgba(255,255,255,.03); }
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 7px 11px;
+    .quick a{
+      border-bottom:none;
+      padding: 7px 10px;
       border-radius: 999px;
       border: 1px solid rgba(95,122,153,.20);
       background: rgba(95,122,153,.08);
-      color: var(--ink);
       font-size: 13px;
-      opacity:.92;
-    }
-    .chip .c{
-      width:6px;height:6px;border-radius:999px;
-      background: rgba(95,122,153,.85);
     }
 
-    .grid{
+    .divider{
+      height:1px;
+      background: var(--line2);
+    }
+
+    /* sections */
+    .sections{
       padding: 14px 18px 18px;
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -348,24 +295,25 @@
       margin:0;
       padding-left: 18px;
       font-size: 14.5px;
-      color: var(--ink);
     }
-    .sec li{ margin: 6px 0; color: var(--ink); }
-    .sec p{ margin:0; font-size: 14.5px; color: var(--ink); }
+    .sec li{ margin: 6px 0; }
+    .sec p{ margin:0; font-size: 14.5px; }
 
     .full{ grid-column: 1 / -1; }
 
-    .pub{
+    /* publication card */
+    .paper{
       display:flex;
       flex-direction:column;
       gap: 10px;
     }
-    .pubItem{
+    .paperRow{
       padding: 10px 0;
       border-top: 1px solid var(--line2);
     }
-    .pubItem:first-child{ border-top:none; padding-top:0; }
-    .titleLine{
+    .paperRow:first-child{ border-top:none; padding-top:0; }
+
+    .paperTop{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
@@ -374,8 +322,7 @@
     }
     .paperTitle{
       font-size: 15px;
-      font-weight: 650;
-      color: var(--ink);
+      font-weight: 680;
     }
     .tag{
       display:inline-flex;
@@ -384,32 +331,61 @@
       padding: 4px 10px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.35);
+      background: rgba(255,255,255,.34);
       font-size: 12px;
       color: var(--muted);
       white-space:nowrap;
     }
-    [data-theme="night"] .tag{ background: rgba(255,255,255,.04); }
+    [data-theme="night"] .tag{ background: rgba(255,255,255,.03); }
 
     .paperMeta{
       margin-top: 6px;
       font-size: 13px;
       color: var(--muted);
     }
+
     .paperLinks{
       margin-top: 8px;
-      font-size: 13px;
       display:flex;
       gap: 10px;
       flex-wrap:wrap;
+      font-size: 13px;
     }
     .paperLinks a{
-      border-bottom: none;
-      padding: 6px 10px;
+      border-bottom:none;
+      padding: 7px 10px;
       border-radius: 999px;
       border: 1px solid rgba(95,122,153,.20);
       background: rgba(95,122,153,.08);
     }
+
+    .copy{
+      border-bottom:none;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.34);
+      cursor:pointer;
+      color: var(--ink);
+      font-size: 13px;
+    }
+    [data-theme="night"] .copy{ background: rgba(255,255,255,.03); }
+
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.72);
+      color:#fff;
+      font-size: 13px;
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .25s ease;
+    }
+    [data-theme="night"] .toast{ background: rgba(233,238,247,.14); color: var(--ink); border: 1px solid var(--line); }
 
     .footer{
       margin-top: 18px;
@@ -423,25 +399,22 @@
       flex-wrap:wrap;
     }
 
-    /* responsive */
     @media (max-width: 980px){
-      .layout{ grid-template-columns: 1fr; }
-      .side{ position: relative; top:0; }
-      .hero{ grid-template-columns: 1fr; }
-      .grid{ grid-template-columns: 1fr; }
+      .topbar{ flex-direction:column; align-items:flex-start; }
       .quote{ text-align:left; max-width:none; }
-      .top{ flex-direction:column; align-items:flex-start; }
-      .toolbar{ justify-content:flex-start; }
-      .name{ font-size: 40px; }
+      .navrow{ flex-direction:column; align-items:flex-start; }
+      .hero{ grid-template-columns: 1fr; }
+      .sections{ grid-template-columns: 1fr; }
+      h1{ font-size: 40px; }
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="top">
+    <div class="topbar">
       <div class="id">
-        <h1 class="name">Leheng Zhao</h1>
+        <h1>Leheng Zhao</h1>
         <div class="sub">Undergraduate · Computer Science · Fudan University</div>
       </div>
 
@@ -452,140 +425,139 @@ Curiosity has its own reason for existence.</div>
       </div>
     </div>
 
-    <div class="toolbar">
+    <div class="navrow">
+      <div class="nav">
+        <a href="#about">About</a>
+        <a href="#interests">Interests</a>
+        <a href="#publication">Publication</a>
+        <a href="#contact">Contact</a>
+      </div>
+
       <button class="btn" id="themeBtn" type="button" aria-label="Toggle theme">
         <span class="dot"></span>
         <span id="themeText">Night</span>
       </button>
-      <a class="btn" href="#publication" style="text-decoration:none;border-bottom:none;">
-        <span class="dot"></span>
-        <span>Publication</span>
-      </a>
     </div>
 
-    <div class="layout">
-      <aside class="side">
-        <div class="miniTitle">Navigate</div>
-        <nav class="nav">
-          <a href="#about"><span>About</span><span class="k">01</span></a>
-          <a href="#interest"><span>Interests</span><span class="k">02</span></a>
-          <a href="#publication"><span>Publication</span><span class="k">03</span></a>
-          <a href="#contact"><span>Contact</span><span class="k">04</span></a>
-        </nav>
-        <div class="sep"></div>
-        <div class="miniTitle">Links</div>
-        <nav class="nav">
-          <a href="https://github.com/lehengzhao83" target="_blank" rel="noopener"><span>GitHub</span><span class="k">↗</span></a>
-          <a href="mailto:lehengzhao83@gmail.com"><span>Email (Gmail)</span><span class="k">@</span></a>
-          <a href="mailto:24302010014@m.fudan.edu.cn"><span>Email (Fudan)</span><span class="k">@</span></a>
-        </nav>
-        <div class="sep"></div>
-        <div class="badge">
-          soft contrast · blue-gray · a little quiet<br/>
-          press <span style="font-family:var(--mono);">Night</span> for deeper mood
-        </div>
-      </aside>
-
-      <main class="card">
-        <section class="hero" id="about">
-          <div class="photo">
-            <!-- Upload a photo as photo.jpg to repo root, then replace placeholder with the img tag -->
-            <!-- <img src="photo.jpg" alt="Leheng Zhao"> -->
-            <div class="placeholder">
-              Upload your photo as <b>&nbsp;photo.jpg&nbsp;</b><br/>
-              (cool tones look best)
-            </div>
+    <main class="card">
+      <section class="hero" id="about">
+        <div class="photo">
+          <!-- Upload photo.jpg to repo root, then replace placeholder with the img tag -->
+          <!-- <img src="photo.jpg" alt="Leheng Zhao"> -->
+          <div class="placeholder">
+            Upload your photo as <b>&nbsp;photo.jpg&nbsp;</b><br/>
+            (cool, low-saturation tones look best)
           </div>
-
-          <div class="about">
-            <h2>About</h2>
-            <p>
-              I’m an undergraduate student at Fudan University. I enjoy building and studying
-              machine learning systems, and I’m particularly drawn to research questions that
-              remain interesting even when the results are not immediately loud.
-            </p>
-
-            <div class="meta">
-              <div class="row"><span class="k">Location:</span> Shanghai, China</div>
-              <div class="row"><span class="k">Email:</span>
-                <a href="mailto:lehengzhao83@gmail.com">lehengzhao83@gmail.com</a>
-                &nbsp;/&nbsp;
-                <a href="mailto:24302010014@m.fudan.edu.cn">24302010014@m.fudan.edu.cn</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <div class="chips" id="interest">
-          <div class="chip"><span class="c"></span> multimodal learning</div>
-          <div class="chip"><span class="c"></span> federated learning</div>
-          <div class="chip"><span class="c"></span> foundation models</div>
-          <div class="chip"><span class="c"></span> systems & evaluation</div>
         </div>
 
-        <section class="grid">
-          <div class="sec">
-            <h3>Interests</h3>
-            <ul>
-              <li>Federated learning for privacy-sensitive training</li>
-              <li>Unified multimodal models (understanding & generation)</li>
-              <li>Communication–computation trade-offs</li>
-              <li>Reliable evaluation under heterogeneity</li>
-            </ul>
-          </div>
+        <div class="about">
+          <h2>About</h2>
+          <p>
+            I’m an undergraduate student at Fudan University. My recent work focuses on
+            federated learning with unified multimodal models, aiming for practical and reproducible systems.
+          </p>
 
-          <div class="sec">
-            <h3>Now</h3>
-            <ul>
-              <li>Reading and iterating on research ideas</li>
-              <li>Organizing notes and code for reproducibility</li>
-              <li>Open to collaboration & feedback</li>
-            </ul>
-          </div>
-
-          <div class="sec full" id="publication">
-            <h3>Publication</h3>
-            <div class="pub">
-              <div class="pubItem">
-                <div class="titleLine">
-                  <div class="paperTitle">FedUMM: A General Framework for Federated Learning with Unified Multimodal Models</div>
-                  <div class="tag">arXiv 2026</div>
-                </div>
-                <div class="paperMeta">
-                  Zhaolong Su, <b>Leheng Zhao</b>, Xiaoying Wu, Ziyue Xu, Jindong Wang. :contentReference[oaicite:1]{index=1}
-                </div>
-                <div class="paperLinks">
-                  <a href="https://arxiv.org/abs/2601.15390v1" target="_blank" rel="noopener">arXiv</a>
-                  <a href="https://arxiv.org/pdf/2601.15390v1.pdf" target="_blank" rel="noopener">PDF</a>
-                  <a href="https://doi.org/10.48550/arXiv.2601.15390" target="_blank" rel="noopener">DOI</a>
-                </div>
-              </div>
+          <div class="meta">
+            <div><span class="k">Email:</span>
+              <a href="mailto:lehengzhao83@gmail.com">lehengzhao83@gmail.com</a>
+              &nbsp;/&nbsp;
+              <a href="mailto:24302010014@m.fudan.edu.cn">24302010014@m.fudan.edu.cn</a>
+            </div>
+            <div><span class="k">GitHub:</span>
+              <a href="https://github.com/lehengzhao83" target="_blank" rel="noopener">lehengzhao83</a>
             </div>
           </div>
 
-          <div class="sec full" id="contact">
-            <h3>Contact</h3>
-            <p>
-              If you’d like to discuss the paper or potential collaboration, feel free to email me:
-              <a href="mailto:lehengzhao83@gmail.com">lehengzhao83@gmail.com</a> /
-              <a href="mailto:24302010014@m.fudan.edu.cn">24302010014@m.fudan.edu.cn</a>.
-            </p>
+          <div class="quick">
+            <a href="#publication">See publication</a>
+            <a href="https://arxiv.org/abs/2601.15390v1" target="_blank" rel="noopener">Open arXiv</a>
           </div>
-        </section>
-      </main>
-    </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="sections">
+        <div class="sec" id="interests">
+          <h3>Interests</h3>
+          <ul>
+            <li>Federated learning with heterogeneous clients</li>
+            <li>Unified multimodal models (training & evaluation)</li>
+            <li>Communication efficiency & systems reproducibility</li>
+            <li>Robustness under real-world data imbalance</li>
+          </ul>
+        </div>
+
+        <div class="sec">
+          <h3>Now</h3>
+          <ul>
+            <li>Improving experiments & writing quality</li>
+            <li>Open to feedback and collaboration</li>
+            <li>Building a clean research codebase</li>
+          </ul>
+        </div>
+
+        <div class="sec full" id="publication">
+          <h3>Publication</h3>
+
+          <div class="paper">
+            <div class="paperRow">
+              <div class="paperTop">
+                <div class="paperTitle">
+                  FedUMM: A General Framework for Federated Learning with Unified Multimodal Models
+                </div>
+                <div class="tag">arXiv · 2026</div>
+              </div>
+
+              <div class="paperMeta">
+                Zhaolong Su, <b>Leheng Zhao</b>, Xiaoying Wu, Ziyue Xu, Jindong Wang.
+              </div>
+
+              <div class="paperLinks">
+                <a href="https://arxiv.org/abs/2601.15390v1" target="_blank" rel="noopener">arXiv</a>
+                <a href="https://arxiv.org/pdf/2601.15390v1.pdf" target="_blank" rel="noopener">PDF</a>
+                <a href="https://doi.org/10.48550/arXiv.2601.15390" target="_blank" rel="noopener">DOI</a>
+                <button class="copy" id="bibBtn" type="button">Copy BibTeX</button>
+              </div>
+
+              <textarea id="bib" style="position:absolute; left:-9999px; top:-9999px;">
+@misc{su2026fedumm,
+  title={FedUMM: A General Framework for Federated Learning with Unified Multimodal Models},
+  author={Su, Zhaolong and Zhao, Leheng and Wu, Xiaoying and Xu, Ziyue and Wang, Jindong},
+  year={2026},
+  eprint={2601.15390},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG}
+}
+              </textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec full" id="contact">
+          <h3>Contact</h3>
+          <p>
+            If you’d like to discuss the paper or collaboration, feel free to email me:
+            <a href="mailto:lehengzhao83@gmail.com">lehengzhao83@gmail.com</a> /
+            <a href="mailto:24302010014@m.fudan.edu.cn">24302010014@m.fudan.edu.cn</a>.
+          </p>
+        </div>
+      </section>
+    </main>
 
     <div class="footer">
       <div>© <span id="y"></span> Leheng Zhao</div>
-      <div>soft, restrained, and slightly blue</div>
+      <div>quiet, restrained, slightly blue</div>
     </div>
   </div>
 
+  <div class="toast" id="toast">Copied.</div>
+
   <script>
-    // year
+    // Year
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // theme toggle (persist)
+    // Theme toggle (persist)
     const root = document.documentElement;
     const key = "lz_theme";
     const saved = localStorage.getItem(key);
@@ -609,7 +581,27 @@ Curiosity has its own reason for existence.</div>
       }
       syncLabel();
     });
+
+    // Copy BibTeX
+    const toast = document.getElementById("toast");
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.style.opacity = "1";
+      setTimeout(()=>toast.style.opacity="0", 900);
+    }
+    document.getElementById("bibBtn").addEventListener("click", async () => {
+      const text = document.getElementById("bib").value.trim();
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast("BibTeX copied.");
+      }catch(e){
+        // fallback
+        const ta = document.getElementById("bib");
+        ta.select();
+        document.execCommand("copy");
+        showToast("BibTeX copied.");
+      }
+    });
   </script>
 </body>
 </html>
-
