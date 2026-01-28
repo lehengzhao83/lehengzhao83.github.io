@@ -240,6 +240,10 @@
     .about p{
       margin: 10px 0 0;
       font-size: 16px;
+      line-height:1.75;
+    }
+    .about p.muted{
+      color: var(--muted);
     }
 
     .meta{
@@ -251,7 +255,6 @@
     }
     .meta .k{ color: var(--faint); }
 
-    /* quick row kept, but we remove "Open arXiv" button */
     .quick{
       margin-top: 12px;
       display:flex;
@@ -276,11 +279,9 @@
     .sections{
       padding: 14px 18px 18px;
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 14px;
     }
-
-    /* Interests & Now boxes removed — keep other section styles for publication/contact */
     .sec{
       background: rgba(255,255,255,.56);
       border: 1px solid var(--line2);
@@ -295,72 +296,67 @@
       letter-spacing:.8px;
       color: var(--faint);
     }
-    .sec ul{
-      margin:0;
-      padding-left: 18px;
-      font-size: 14.5px;
-    }
-    .sec li{ margin: 6px 0; }
     .sec p{ margin:0; font-size: 14.5px; }
 
-    .full{ grid-column: 1 / -1; }
-
-    /* publication card */
-    .paper{
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-    }
-    .paperRow{
-      padding: 10px 0;
-      border-top: 1px solid var(--line2);
-    }
-    .paperRow:first-child{ border-top:none; padding-top:0; }
-
-    .paperTop{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 10px;
-      flex-wrap:wrap;
-    }
-    .paperTitle{
-      font-size: 15px;
-      font-weight: 680;
-    }
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 4px 10px;
-      border-radius: 999px;
+    /* Highlights-style publication */
+    .highlightCard{
+      border-radius: 18px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.34);
+      background: rgba(255,255,255,.55);
+      box-shadow: var(--shadow2);
+      padding: 18px 18px 14px;
+    }
+    [data-theme="night"] .highlightCard{
+      background: rgba(0,0,0,.22);
+    }
+    .hlLabel{
+      margin: 0 0 10px 0;
       font-size: 12px;
-      color: var(--muted);
-      white-space:nowrap;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--faint);
     }
-    [data-theme="night"] .tag{ background: rgba(255,255,255,.03); }
-
-    .paperMeta{
-      margin-top: 6px;
-      font-size: 13px;
-      color: var(--muted);
+    .hlTitle a{
+      border-bottom: none;
+      color: var(--ink);
+      font-size: 22px;
+      font-weight: 780;
+      line-height: 1.25;
     }
-
-    .paperLinks{
-      margin-top: 8px;
+    .hlTitle a:hover{
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .hlAuthors{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .hlVenue{
+      margin-top: 10px;
+      color: var(--accent2);
+      font-size: 16px;
+      font-weight: 650;
+    }
+    .hlDesc{
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.7;
+    }
+    .hlActions{
+      margin-top: 12px;
       display:flex;
-      gap: 10px;
+      gap:10px;
       flex-wrap:wrap;
-      font-size: 13px;
     }
-    .paperLinks a{
+    .hlActions a{
       border-bottom:none;
       padding: 7px 10px;
       border-radius: 999px;
       border: 1px solid rgba(95,122,153,.20);
       background: rgba(95,122,153,.08);
+      font-size: 13px;
     }
 
     .copy{
@@ -408,7 +404,6 @@
       .quote{ text-align:left; max-width:none; }
       .navrow{ flex-direction:column; align-items:flex-start; }
       .hero{ grid-template-columns: 1fr; }
-      .sections{ grid-template-columns: 1fr; }
       h1{ font-size: 40px; }
     }
   </style>
@@ -453,25 +448,12 @@ Curiosity has its own reason for existence.</div>
           </div>
         </div>
 
-       <div class="about">
-  <h2>About</h2>
+        <div class="about">
+          <h2>About</h2>
 
-  <p style="margin:10px 0 0; font-size:16px; line-height:1.75;">
-    <span style="font-weight:650;">Hi there</span> — I’m <span style="font-weight:650;">Leheng Zhao</span>,
-    an undergraduate majoring in <span style="font-weight:650;">Computer Science</span> at
-    <span style="font-weight:650;">Fudan University</span>.
-  </p>
-
-  <p style="margin:10px 0 0; font-size:16px; line-height:1.75;">
-    I’m grateful to be advised by <span style="font-weight:650;">Dr. Zhiao Huang</span> and
-    <span style="font-weight:650;">Prof. Jindong Wang</span>.
-  </p>
-
-  <p style="margin:10px 0 0; font-size:16px; line-height:1.75; color: var(--muted);">
-    Earlier, during high school, I was fortunate to learn from
-    Mr. Ziyuan Liu, Ms. Lili Chen, Ms. Yarui Yan and Ms. Yan Wang.
-  </p>
-         
+          <p><b>Hi there</b> — I’m <b>Leheng Zhao</b>, an undergraduate majoring in <b>Computer Science</b> at <b>Fudan University</b>.</p>
+          <p>I’m grateful to be advised by <b>Dr. Zhiao Huang</b> and <b>Prof. Jindong Wang</b>.</p>
+          <p class="muted">Earlier, during high school, I was fortunate to learn from Mr. Ziyuan Liu, Ms. Lili Chen, Ms. Yarui Yan, Ms. Yan Wang, and Ms. Xiaoyan Miao.</p>
 
           <div class="meta">
             <div><span class="k">Email:</span>
@@ -493,30 +475,39 @@ Curiosity has its own reason for existence.</div>
       <div class="divider"></div>
 
       <section class="sections">
-        <div class="sec full" id="publication">
+        <div class="sec" id="publication">
           <h3>Publication</h3>
 
-          <div class="paper">
-            <div class="paperRow">
-              <div class="paperTop">
-                <div class="paperTitle">
-                  FedUMM: A General Framework for Federated Learning with Unified Multimodal Models
-                </div>
-                <div class="tag">arXiv · 2026</div>
-              </div>
+          <div class="highlightCard">
+            <div class="hlLabel">Highlights</div>
 
-              <div class="paperMeta">
-                Zhaolong Su, <b>Leheng Zhao</b>, Xiaoying Wu, Ziyue Xu, Jindong Wang.
-              </div>
+            <div class="hlTitle">
+              <a href="https://arxiv.org/abs/2601.15390v1" target="_blank" rel="noopener">
+                FedUMM: A General Framework for Federated Learning with Unified Multimodal Models
+              </a>
+            </div>
 
-              <div class="paperLinks">
-                <a href="https://arxiv.org/abs/2601.15390v1" target="_blank" rel="noopener">arXiv</a>
-                <a href="https://arxiv.org/pdf/2601.15390v1.pdf" target="_blank" rel="noopener">PDF</a>
-                <a href="https://doi.org/10.48550/arXiv.2601.15390" target="_blank" rel="noopener">DOI</a>
-                <button class="copy" id="bibBtn" type="button">Copy BibTeX</button>
-              </div>
+            <div class="hlAuthors">
+              Zhaolong Su, <b>Leheng Zhao</b>, Xiaoying Wu, Ziyue Xu, Jindong Wang.
+            </div>
 
-              <textarea id="bib" style="position:absolute; left:-9999px; top:-9999px;">
+            <div class="hlVenue">
+              WWW’26 Federated Learning Workshop (Accepted)
+            </div>
+
+            <div class="hlDesc">
+              We propose a general framework for federated learning with unified multimodal models,
+              focusing on practical training under modality-skewed data and reproducible evaluation.
+            </div>
+
+            <div class="hlActions">
+              <a href="https://arxiv.org/abs/2601.15390v1" target="_blank" rel="noopener">arXiv</a>
+              <a href="https://arxiv.org/pdf/2601.15390v1.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://doi.org/10.48550/arXiv.2601.15390" target="_blank" rel="noopener">DOI</a>
+              <button class="copy" id="bibBtn" type="button">Copy BibTeX</button>
+            </div>
+
+            <textarea id="bib" style="position:absolute; left:-9999px; top:-9999px;">
 @misc{su2026fedumm,
   title={FedUMM: A General Framework for Federated Learning with Unified Multimodal Models},
   author={Su, Zhaolong and Zhao, Leheng and Wu, Xiaoying and Xu, Ziyue and Wang, Jindong},
@@ -525,12 +516,11 @@ Curiosity has its own reason for existence.</div>
   archivePrefix={arXiv},
   primaryClass={cs.LG}
 }
-              </textarea>
-            </div>
+            </textarea>
           </div>
         </div>
 
-        <div class="sec full" id="contact">
+        <div class="sec" id="contact">
           <h3>Contact</h3>
           <p>
             If you’d like to discuss the paper or collaboration, feel free to email me:
