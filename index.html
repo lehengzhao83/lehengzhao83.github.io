@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Leheng Zhao — personal homepage.">
+  <title>Leheng Zhao</title>
+
+  <style>
+    @font-face {
+      font-family: "DM Sans";
+      src: url("assets/fonts/dm-sans-latin.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 1000;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Newsreader";
+      src: url("assets/fonts/newsreader-latin.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 200 800;
+      font-display: swap;
+    }
+
+    :root {
+      --white: #ffffff;
+      --ink: #252a2f;
+      --navy: #17324d;
+      --muted: #697681;
+      --line: #d9e1e5;
+      --blue: #557d93;
+      --blue-pale: #eaf1f4;
+      --rust: #965f4b;
+      --max-width: 1160px;
+      --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+      --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    ::selection {
+      background: var(--blue-pale);
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      transition: color 160ms ease;
+    }
+
+    a:hover {
+      color: var(--rust);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 5px;
+      border-radius: 2px;
+    }
+
+    .shell {
+      width: min(calc(100% - 64px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      min-height: 92px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wordmark {
+      color: var(--navy);
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      gap: clamp(20px, 2.6vw, 36px);
+      color: #46535e;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .navigation a {
+      text-decoration: none;
+    }
+
+    .external::after {
+      display: inline-block;
+      width: 0.52em;
+      height: 0.52em;
+      margin-left: 0.34em;
+      border-top: 1px solid currentColor;
+      border-right: 1px solid currentColor;
+      background: linear-gradient(to top right, transparent 43%, currentColor 44%, currentColor 53%, transparent 54%);
+      content: "";
+      transform: translateY(-0.08em);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 292px;
+      gap: clamp(64px, 9vw, 130px);
+      align-items: center;
+      min-height: calc(100vh - 176px);
+      padding: clamp(72px, 9vw, 118px) 0;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 0 0 26px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .section-label::before {
+      width: 30px;
+      height: 1px;
+      content: "";
+      background: var(--blue);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--navy);
+      font-family: var(--serif);
+      font-size: clamp(62px, 7.2vw, 96px);
+      font-weight: 400;
+      letter-spacing: -0.055em;
+      line-height: 0.94;
+    }
+
+    .subtitle {
+      margin: 24px 0 0;
+      color: var(--blue);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .bio {
+      color: var(--ink);
+      max-width: 690px;
+      margin-top: clamp(48px, 6vw, 76px);
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+      font-family: var(--serif);
+      font-size: clamp(19px, 1.7vw, 23px);
+      letter-spacing: -0.012em;
+      line-height: 1.56;
+    }
+
+    .bio p {
+      margin: 0 0 24px;
+    }
+
+    .bio p:last-child {
+      margin-bottom: 0;
+    }
+
+    .person-name {
+      font-size: 1.16em;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .person-name--self {
+      color: var(--rust);
+    }
+
+    .person-name--mentor {
+      color: var(--navy);
+    }
+
+    .person-name--professor {
+      color: var(--blue);
+    }
+
+    .portrait {
+      margin: 0;
+    }
+
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 5 / 7;
+      object-fit: cover;
+      background: var(--white);
+      border-radius: 3px;
+      box-shadow: 0 20px 54px rgba(23, 50, 77, 0.09);
+      filter: saturate(0.84) contrast(1.02);
+    }
+
+    .publication {
+      padding: clamp(76px, 8vw, 108px) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .publication h2 {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 0;
+      color: var(--navy);
+      font-family: var(--serif);
+      font-size: clamp(46px, 5.2vw, 68px);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .publication h2::before {
+      width: 30px;
+      height: 1px;
+      content: "";
+      background: var(--blue);
+    }
+
+    .publication-space {
+      min-height: 150px;
+      margin-top: 44px;
+      border-top: 1px solid var(--line);
+    }
+
+    .visitors {
+      padding: clamp(68px, 7vw, 94px) 0;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .visitors h2 {
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .visitor-widget {
+      display: grid;
+      min-height: 190px;
+      place-items: start center;
+    }
+
+    .visitor-widget > * {
+      max-width: 100%;
+    }
+
+    .visitor-widget iframe {
+      border: 0;
+    }
+
+    .site-footer {
+      padding: 28px 0 40px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .click-dog {
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: clamp(78px, 8vw, 108px);
+      height: auto;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 10px 16px rgba(23, 50, 77, 0.16));
+      transform: translate(-50%, -72%) rotate(var(--dog-tilt, 0deg)) scale(0.4);
+      transform-origin: 50% 100%;
+      animation: dog-pop 980ms cubic-bezier(0.2, 0.78, 0.24, 1) forwards;
+    }
+
+    @keyframes dog-pop {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -52%) rotate(var(--dog-tilt, 0deg)) scale(0.35);
+      }
+      28% {
+        opacity: 1;
+        transform: translate(-50%, -92%) rotate(var(--dog-tilt, 0deg)) scale(1.08);
+      }
+      66% {
+        opacity: 1;
+        transform: translate(-50%, -96%) rotate(var(--dog-tilt, 0deg)) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -120%) rotate(var(--dog-tilt, 0deg)) scale(0.86);
+      }
+    }
+
+    @media (max-width: 820px) {
+      .shell {
+        width: min(calc(100% - 36px), var(--max-width));
+      }
+
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        padding: 22px 0 20px;
+      }
+
+      .navigation {
+        width: 100%;
+        gap: 20px;
+        font-size: 13px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+      }
+
+      .navigation::-webkit-scrollbar {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 62px;
+        min-height: auto;
+        padding: 62px 0 78px;
+      }
+
+      h1 {
+        font-size: clamp(56px, 17vw, 78px);
+      }
+
+      .bio {
+        font-size: clamp(18px, 5vw, 21px);
+      }
+
+      .portrait {
+        width: min(70vw, 300px);
+        margin-left: auto;
+      }
+
+      .publication {
+        padding: 68px 0;
+      }
+
+      .publication-space {
+        min-height: 100px;
+        margin-top: 34px;
+      }
+
+      .visitors {
+        padding: 58px 0 64px;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+
+      .click-dog {
+        animation-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="shell">
+    <header class="site-header">
+      <a class="wordmark" href="#about">Leheng Zhao</a>
+
+      <nav class="navigation" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#publication">Publication</a>
+        <a class="external" href="Leheng_Zhao_CV.pdf" target="_blank" rel="noopener">CV</a>
+        <a class="external" href="https://www.linkedin.com/in/leheng-zhao-4375a1392/" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main class="hero" id="about">
+      <section>
+        <p class="section-label">About</p>
+        <h1>Leheng Zhao</h1>
+        <p class="subtitle">Undergraduate · College of Computer Science and Artificial Intelligence · Fudan University</p>
+
+        <div class="bio">
+          <p>I'm <span class="person-name person-name--self">Leheng Zhao</span>, a second-year undergraduate majoring in Computer Science at Fudan University.</p>
+          <p>I began my research journey previously at the <span class="person-name person-name--professor">Hao Su</span> Lab at UC San Diego and currently at Sudo Inc., where I am fortunate to work with <a class="person-name person-name--mentor" href="https://sites.google.com/view/zhiao-huang" target="_blank" rel="noopener">Dr. Zhiao Huang</a> and <a class="person-name person-name--professor" href="https://www.haosu.ai/" target="_blank" rel="noopener">“Haoqing” Distinguished Professor Hao Su</a>.</p>
+        </div>
+      </section>
+
+      <figure class="portrait">
+        <img src="photo.jpg" alt="Leheng Zhao" width="750" height="1050">
+      </figure>
+    </main>
+
+    <section class="publication" id="publication" aria-labelledby="publication-title">
+      <h2 id="publication-title">Publication</h2>
+      <div class="publication-space" aria-hidden="true"></div>
+    </section>
+
+    <section class="visitors" aria-labelledby="visitors-title">
+      <h2 id="visitors-title">Visitors</h2>
+      <div class="visitor-widget">
+        <script id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?d=zGutDVTFnL-sm3mnJnmM-RFDAQjIHDOBUnvm0yFZNXM&amp;cl=ffffff&amp;w=a"></script>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span>© <span id="year">2026</span> Leheng Zhao</span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0) return;
+
+      const activeDogs = document.querySelectorAll(".click-dog");
+      if (activeDogs.length >= 6) activeDogs[0].remove();
+
+      const dog = document.createElement("img");
+      dog.className = "click-dog";
+      dog.src = "assets/dog-click.png";
+      dog.alt = "";
+      dog.setAttribute("aria-hidden", "true");
+      const x = Math.min(window.innerWidth - 44, Math.max(44, event.clientX));
+      const y = Math.min(window.innerHeight - 12, Math.max(96, event.clientY));
+      dog.style.left = `${x}px`;
+      dog.style.top = `${y}px`;
+      dog.style.setProperty("--dog-tilt", `${Math.round(Math.random() * 14 - 7)}deg`);
+      document.body.appendChild(dog);
+
+      dog.addEventListener("animationend", () => dog.remove(), { once: true });
+    });
+  </script>
+</body>
+</html>
