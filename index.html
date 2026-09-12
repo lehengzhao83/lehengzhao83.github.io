@@ -49,7 +49,9 @@
     body {
       margin: 0;
       color: var(--ink);
-      background: var(--white);
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.68)),
+        url("assets/cinnamoroll-official-poster-2026.jpg") center / cover fixed no-repeat;
       font-family: var(--sans);
       font-size: 16px;
       line-height: 1.72;
@@ -466,7 +468,7 @@
 
       const dog = document.createElement("img");
       dog.className = "click-dog";
-      dog.src = "assets/dog-click.png";
+      dog.src = "assets/cinnamoroll-click.png";
       dog.alt = "";
       dog.setAttribute("aria-hidden", "true");
       const x = Math.min(window.innerWidth - 44, Math.max(44, event.clientX));
