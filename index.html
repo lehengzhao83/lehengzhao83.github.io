@@ -49,12 +49,27 @@
     body {
       margin: 0;
       color: var(--ink);
-      background: var(--white);
+      background-image: url("https://wallpaperaccess.com/full/2571126.jpg");
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
       font-family: var(--sans);
       font-size: 16px;
       line-height: 1.72;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.92);
+      pointer-events: none;
+      z-index: -1;
     }
 
     ::selection {
@@ -81,6 +96,8 @@
     .shell {
       width: min(calc(100% - 64px), var(--max-width));
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .site-header {
@@ -429,7 +446,7 @@
 
         <div class="bio">
           <p>I'm <span class="person-name person-name--self">Leheng Zhao</span>, a second-year undergraduate majoring in Computer Science at Fudan University.</p>
-          <p>I began my research journey previously at the Hao Su Lab at UC San Diego and currently at Sudo Inc., where I am fortunate to work with <a class="person-name person-name--mentor" href="https://sites.google.com/view/zhiao-huang" target="_blank" rel="noopener">Dr. Zhiao Huang</a> and <a class="person-name person-name--professor" href="https://www.haosu.ai/" target="_blank" rel="noopener">“Haoqing” Distinguished Professor Hao Su</a>.</p>
+          <p>I began my research journey previously at the Hao Su Lab at UC San Diego and currently at Sudo Inc., where I am fortunate to work with <a class="person-name person-name--mentor" href="htt[...]
         </div>
       </section>
 
